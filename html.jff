@@ -51,7 +51,7 @@
 	</production>
 	<production>
 		<left>M</left>
-		<right>&lt;textarea&gt;T&lt;/textarea&gt;</right>
+		<right>&lt;textarea&gt;T&lt;/textarea&gt;M</right>
 	</production>
 	<production>
 		<left>B</left>
@@ -70,7 +70,7 @@
 		<right>&lt;span&gt;C&lt;/span&gt;B</right>
 	</production>
 	<production>
-		<left>B</left>
+		<left>L</left>
 		<right/>
 	</production>
 	<production>
@@ -79,11 +79,11 @@
 	</production>
 	<production>
 		<left>M</left>
-		<right>&lt;ul&gt;L&lt;/ul&gt;</right>
+		<right>&lt;ul&gt;L&lt;/ul&gt;M</right>
 	</production>
 	<production>
 		<left>M</left>
-		<right>&lt;ol&gt;L&lt;/ol&gt;</right>
+		<right>&lt;ol&gt;L&lt;/ol&gt;M</right>
 	</production>
 	<production>
 		<left>B</left>
@@ -91,30 +91,38 @@
 	</production>
 	<production>
 		<left>D</left>
-		<right>MD</right>
-	</production>
-	<production>
-		<left>B</left>
-		<right>DB</right>
-	</production>
-	<production>
-		<left>D</left>
 		<right>&lt;div&gt;D&lt;/div&gt;</right>
 	</production>
 	<production>
-		<left>M</left>
-		<right>&lt;h1&gt;T&lt;/h1</right>
+		<left>B</left>
+		<right>&lt;div&gt;D&lt;/div&gt;B</right>
+	</production>
+	<production>
+		<left>D</left>
+		<right>&lt;div&gt;M&lt;/div&gt;D</right>
 	</production>
 	<production>
 		<left>M</left>
-		<right>&lt;p&gt;C&lt;/p&gt;</right>
+		<right>&lt;h1&gt;T&lt;/h1&gt;M</right>
 	</production>
 	<production>
 		<left>M</left>
-		<right>C</right>
+		<right>&lt;p&gt;C&lt;/p&gt;M</right>
 	</production>
 	<production>
 		<left>M</left>
-		<right>L</right>
+		<right>CM</right>
+	</production>
+	<production>
+		<left>M</left>
+		<right>LM</right>
+	</production>
+	<production>
+		<left>T</left>
+		<right>z</right>
+	</production>
+	<production>
+		<left>T</left>
+		<right/>
 	</production>
 </structure>
