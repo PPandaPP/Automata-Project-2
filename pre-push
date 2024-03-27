@@ -1,0 +1,28 @@
+#!/bin/sh
+
+# pre-push hook
+# runs pytest on unit tests in the unit tests folder.
+# prevents push to main if not all unit tests were passed.
+# exits with non-zero value if no push wants to be made.
+# include this file into the .git/hooks folder for the hook to work
+
+echo "getting into unit tests"
+
+cd "unit tests"
+if [ $? != 0 ]
+then
+    echo -e "\n No unit tests folder found \n"
+    exit 1
+fi
+
+pytest -v
+
+if [ $? != 0 ]
+then
+    echo -e "\n faild unit tests, no push \n"
+    exit 1
+else
+    echo -e "\n unit tests passed! pushing to main \n"
+fi
+
+exit 0
