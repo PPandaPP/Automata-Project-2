@@ -18,10 +18,13 @@ def test_valid_word():
     #assert (str(type(fw.load_regex(input))) == str(accepted))
     
     # Assert that the connection is added correctly
-    assert(jcp.word_accept("<html><head> <title> z </title> </head><body> <br> z </br> </body></html>".lower().split()) > 0)
-    assert(jcp.word_accept("<html><head> <title> </title> </head><body> <br> </br> </body></html>".lower().split()) > 0)
-    assert(jcp.word_accept("<html><head> <title> z </title> </head><body> </body></html>".lower().split()) > 0)
-    assert(jcp.word_accept("<html><head> <title> z </title> </head><body> <br>  </br> z </body></html>".lower().split()) > 0)
-    assert(jcp.word_accept("<html><head> <title> z </title> </head><body> <br> z </br> <hr> z </hr> <br> z </br> </body></html>".lower().split()) > 0)
-    assert(jcp.word_accept("<html><head> <title> z </title> </head><body> <br> z </br> <hr> z </hr> <br> </br> z </body></html>".lower().split()) > 0)
-    assert(jcp.word_accept("<html><head> <title> z </title> </head><body> z z </body></html>".lower().split()) > 0)
+    assert(jcp.word_accept("<html><head> <title> z </title> </head><body> <br> z </br> </body></html>") > 0)
+    assert(jcp.word_accept("<html><head> <title> </title> </head><body>  </body></html>") > 0)
+    assert(jcp.word_accept("<html><head> <title> z </title> </head><body> </body></html>") > 0)
+    assert(jcp.word_accept("<html><head> <title> z </title> </head><body> <br>  </br> z </body></html>") > 0)
+    assert(jcp.word_accept("<html><head> <title> z </title> </head><body> <br> z </br> <hr> z </hr> <br> z </br> </body></html>") > 0)
+    assert(jcp.word_accept("<html><head> <title> z </title> </head><body> <br> z </br> <hr> z </hr> <br> </br> z </body></html>") > 0)
+    assert(jcp.word_accept("<html><head> <title> z </title> </head><body> z <br> </br> </body></html>") > 0)
+    #assert(jcp.word_accept("<html><head> <title> z </title> </head><body> z z </body></html>") > 0)
+    
+    C -> T

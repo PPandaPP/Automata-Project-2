@@ -26,7 +26,7 @@
 		<right>"&lt;hr&gt;"T"&lt;/hr&gt;"</right>
 	</production>
 		<production>
-		<left>C</left>
+		<left>B</left>
 		<right>T</right>
 	</production>
 	<production>

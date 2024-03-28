@@ -64,7 +64,7 @@ def word_accept(sentence):
     
     print("Recursion....", sentence)
     count_steps = 0
-    for t in rd.parse(sentence):
+    for t in rd.parse(sentence.lower().split()):
         print(t)
         count_steps+=1
     
