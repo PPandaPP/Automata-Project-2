@@ -2,7 +2,7 @@
 	<type>grammar</type>
 	<!--The list of productions.-->
 	<production>
-		<left>HTML</left>
+		<left>S</left>
 		<right>"&lt;html&gt;&lt;head&gt;"H"&lt;/head&gt;&lt;body&gt;"B"&lt;/body&gt;&lt;/html&gt;"</right>
 	</production>
 	<production>
@@ -11,11 +11,11 @@
 	</production>
 	<production>
 		<left>H</left>
-		<right/>
+		<right>""</right>
 	</production>
 	<production>
 		<left>B</left>
-		<right>CB</right>
+		<right>C B</right>
 	</production>
 	<production>
 		<left>C</left>
@@ -71,7 +71,7 @@
 	</production>
 	<production>
 		<left>L</left>
-		<right/>
+		<right>""</right>
 	</production>
 	<production>
 		<left>L</left>
@@ -87,7 +87,7 @@
 	</production>
 	<production>
 		<left>B</left>
-		<right>MB</right>
+		<right>M B</right>
 	</production>
 	<production>
 		<left>D</left>
@@ -111,18 +111,18 @@
 	</production>
 	<production>
 		<left>M</left>
-		<right>CM</right>
+		<right>C M</right>
 	</production>
 	<production>
 		<left>M</left>
-		<right>LM</right>
+		<right>L M</right>
 	</production>
 	<production>
 		<left>T</left>
-		<right>z</right>
+		<right>"z"</right>
 	</production>
 	<production>
 		<left>T</left>
-		<right/>
+		<right>""</right>
 	</production>
 </structure>

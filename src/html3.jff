@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!--Created with JFLAP 7.1.--><structure>
+	<type>grammar</type>
+	<!--The list of productions.-->
+	<production>
+		<left>HTML</left>
+		<right>"&lt;html&gt;&lt;head&gt;"H"&lt;/head&gt;&lt;body&gt;"B"&lt;/body&gt;&lt;/html&gt;"</right>
+	</production>
+	<production>
+		<left>H</left>
+		<right>"&lt;title&gt;"T"&lt;/title&gt;"</right>
+	</production>
+	<production>
+		<left>C</left>
+		<right>T</right>
+	</production>
+	<production>
+		<left>B</left>
+		<right>C B</right>
+	</production>
+	<production>
+		<left>C</left>
+		<right>"&lt;img&gt;"</right>
+	</production>
+	<production>
+		<left>C</left>
+		<right>"&lt;br&gt;"T"&lt;/br&gt;"</right>
+	</production>
+	<production>
+		<left>C</left>
+		<right>"&lt;hr&gt;"T"&lt;/hr&gt;"</right>
+	</production>
+	<production>
+		<left>T</left>
+		<right>""</right>
+	</production>
+    <production>
+		<left>B</left>
+		<right>""</right>
+	</production>
+	<production>
+		<left>T</left>
+		<right>"z"</right>
+	</production>
+</structure>
