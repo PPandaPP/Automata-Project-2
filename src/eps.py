@@ -14,7 +14,7 @@ B -> C B
 B -> D
 B -> C
 D -> 'None'
-C ->  L8 T L9 
+C -> L8 T L9 
 T -> L11
 T -> L10
 L10 -> 'None'
@@ -85,31 +85,36 @@ def remove_all_epsilons(grammar):
             
     print("Nullable: ", nullable, "\n")
 
+    new_prods = grammar.productions().copy()
     # add new rules without each of the nullables
     for p in grammar.productions():
         for rr in p.rhs():
             if rr in nullable:
+                #print("null", p)
                 lhs = p.lhs()
                 rhs = removing_nullable(p.rhs(), rr)
                 if(len(rhs) == 0):
                     continue
-                else:
-                    rhs = removing_nullable(p.rhs(), rr)
                 
-                new_production = Production(lhs, rhs)
-                grammar.productions().append(new_production)
+                # check for redundancies such as B -> B
+                if(lhs != rhs[0] or len(rhs) != 1):
+                    new_production = Production(lhs, rhs)
+                    new_prods.append(new_production)
                 
         # remove direct 'None'
         if ('None' in p.rhs()):
-            grammar.productions().remove(p)
-'''
-grammar = CFG.fromstring(gg2)  
+            new_prods.remove(p)
+        
+    new_grammar = CFG(grammar.start(), new_prods)
+    return(new_grammar)
+
+grammar = CFG.fromstring(gg)  
 print("\n", "Before eliminating epsilons: ")
 for p in grammar.productions():          
         print(p)  
          
-remove_all_epsilons(grammar)
+new_grammar = remove_all_epsilons(grammar)
 
 print("\n", "After eliminating epsilons: ")
-for p in grammar.productions():          
-        print(p)'''
+for p in new_grammar.productions():          
+        print(p)
