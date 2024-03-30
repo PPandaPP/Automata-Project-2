@@ -8,7 +8,7 @@ import xml.etree.ElementTree as ET
 def CFG_to_string():
     gg = ""
     temp_gg = ""
-    tree = ET.parse("html2.jff")
+    tree = ET.parse("html_final1.0.jff")
     root = tree.getroot()
     
     counter_new_rules = 0
@@ -71,5 +71,5 @@ def word_accept(sentence):
     return(count_steps)
 
 
-word_accept("<html><head> <title> </title> </head><body> z z </body></html>")
+word_accept("<html><head><title> a </title></head><body> abc </body></html>")
 

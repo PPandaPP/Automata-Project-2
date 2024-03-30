@@ -80,7 +80,7 @@ def removing_nullable(rhs, element):
 
 def remove_all_epsilons(grammar):
     nullable = set()   
-    if (check_nullable(grammar, "HTML", nullable, 0)):
+    if (check_nullable(grammar, grammar.start(), nullable, 0)):
         nullable.add(grammar.start())
             
     print("Nullable: ", nullable, "\n")
