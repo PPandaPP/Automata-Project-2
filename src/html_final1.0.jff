@@ -39,7 +39,7 @@
 	</production>&#13;
 	<production>&#13;
 		<left>R</left>&#13;
-		<right>LI</right>&#13;
+		<right>LI </right>&#13;
 	</production>&#13;
 	<production>&#13;
 		<left>R</left>&#13;
@@ -131,6 +131,10 @@
 	</production>&#13;
 	<production>&#13;
 		<left>T</left>&#13;
+		<right/>&#13;
+	</production>&#13;
+	<production>&#13;
+		<left>NR</left>&#13;
 		<right/>&#13;
 	</production>&#13;
 </structure>

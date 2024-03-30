@@ -71,5 +71,5 @@ def word_accept(sentence):
     return(count_steps)
 
 
-word_accept("<html><head><title> a </title></head><body> abc </body></html>")
+word_accept("<html><head><title> a </title></head><body> a </body></html>")
 

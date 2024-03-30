@@ -17,4 +17,6 @@ todo:
 3. CLI
 4. Unit tests
 5. Parser split problem
+6. Fix line 60-70 eps.py recursion
+
 For the parsing of HTML, we are assuming that the input includes the following tags: \<html\>, \<head\>, \<title\>, \<body\>.
