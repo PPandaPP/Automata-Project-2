@@ -50,26 +50,26 @@ def word_accept(sentence):
     print(g0)
     g1 = CFG.fromstring(g0)
     
-    eps.remove_all_epsilons(g1)
+    g1 = eps.remove_all_epsilons(g1)
     
     for production in g1.productions():
         print(production)
     
     c = g1.chomsky_normal_form() # not finishing
-    #print("Printing productions in CNF...")
-    #for p in g1.productions():           
-    #    print(p)  
+    print("\n Printing productions in CNF...")
+    for p in c.productions():           
+       print(p)  
         
-    '''rd = RecursiveDescentParser(g1)  
+    rd = RecursiveDescentParser(c)  
     
     print("Recursion....")
     count_steps = 0
     for t in rd.parse(sentence.lower().split()):
         print(t)
-        count_steps+=1'''
+        count_steps+=1
         
-    #return(count_steps)
+    return(count_steps)
 
 
-word_accept("<html><head> <title> </title> </head><body> z </body></html>")
+word_accept("<html><head> <title> </title> </head><body> z z </body></html>")
 

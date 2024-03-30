@@ -108,13 +108,13 @@ def remove_all_epsilons(grammar):
     new_grammar = CFG(grammar.start(), new_prods)
     return(new_grammar)
 
-grammar = CFG.fromstring(gg)  
-print("\n", "Before eliminating epsilons: ")
-for p in grammar.productions():          
-        print(p)  
+# grammar = CFG.fromstring(gg)  
+# print("\n", "Before eliminating epsilons: ")
+# for p in grammar.productions():          
+#         print(p)  
          
-new_grammar = remove_all_epsilons(grammar)
+# new_grammar = remove_all_epsilons(grammar)
 
-print("\n", "After eliminating epsilons: ")
-for p in new_grammar.productions():          
-        print(p)
+# print("\n", "After eliminating epsilons: ")
+# for p in new_grammar.productions():          
+#         print(p)
