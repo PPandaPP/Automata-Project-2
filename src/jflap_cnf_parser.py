@@ -8,7 +8,7 @@ import xml.etree.ElementTree as ET
 def CFG_to_string():
     gg = ""
     temp_gg = ""
-    tree = ET.parse("html_final1.0.jff")
+    tree = ET.parse("xml.jff")
     root = tree.getroot()
     
     counter_new_rules = 0
@@ -26,7 +26,9 @@ def CFG_to_string():
                 temp = str(c2.text).split("\"")
 
                 for i in range(len(temp)):
-                    if(len(temp[i]) > 0 and not temp[i].isupper()):
+                    if temp[i] == 'None':
+                        temp_rule.append("'"+temp[i]+"'")
+                    elif(len(temp[i]) > 0 and not temp[i].isupper()):
                         
                         temp_rule.append("L"+ str(counter_new_rules)) 
                         # create new rule with just one terminal
@@ -71,5 +73,5 @@ def word_accept(sentence):
     return(count_steps)
 
 
-word_accept("<html><head><title> a </title></head><body> a </body></html>")
+word_accept("< a b > < a > </ a > </ c >")
 
