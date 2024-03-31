@@ -13,9 +13,8 @@ For the parsing of HTML, we are assuming that the input includes the following t
 
 todo: 
 1. Custom grmmar
-2. CLI
-3. Unit tests
-4. Parser split problem
+2. Unit tests
+3. Parser split problem
 
 
 For the parsing of HTML, we are assuming that the input includes the following tags: \<html\>, \<head\>, \<title\>, \<body\>.
