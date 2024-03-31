@@ -5,10 +5,10 @@ from io import StringIO
 import xml.etree.ElementTree as ET
 
 
-def CFG_to_string():
+def CFG_to_string(grammar_file):
     gg = ""
     temp_gg = ""
-    tree = ET.parse("xml.jff")
+    tree = ET.parse(grammar_file)
     root = tree.getroot()
     
     counter_new_rules = 0
@@ -46,32 +46,50 @@ def CFG_to_string():
     return(gg)
 
     
+def word_accept(parser, sentence, language):   
+    
+    print("Recursion....")
+    count_steps = 0
+    # temp_tokens = sentence.lower().split()
+    # #HTML parse
+    # tokens = []
+    # if language == 1:
+    #     for t in temp_tokens:
+    #         if t.isalnum():
 
-def word_accept(sentence): 
-    g0 = CFG_to_string()
-    print(g0)
+
+    try:
+        for t in parser.parse(sentence.lower().split()):
+            print(t)
+            count_steps+=1
+        if count_steps != 0:
+            return True
+    except ValueError:
+        return(False)
+
+    return(False)
+
+def load_grammar(grammar_file):
+    g0 = CFG_to_string(grammar_file)
+    # print(g0)
     g1 = CFG.fromstring(g0)
     
     g1 = eps.remove_all_epsilons(g1)
     
-    for production in g1.productions():
-        print(production)
+    # for production in g1.productions():
+    #     print(production)
     
     c = g1.chomsky_normal_form() # not finishing
-    print("\n Printing productions in CNF...")
-    for p in c.productions():           
-       print(p)  
+    # print("\n Printing productions in CNF...")
+    # for p in c.productions():           
+    #    print(p)  
         
-    rd = RecursiveDescentParser(c)  
-    
-    print("Recursion....")
-    count_steps = 0
-    for t in rd.parse(sentence.lower().split()):
-        print(t)
-        count_steps+=1
-        
-    return(count_steps)
+    return(RecursiveDescentParser(c))
 
-
-word_accept("< a b > < a > </ a > </ c >")
-
+def load_file(file_name):
+    try:
+        f = open(file_name, 'r')
+    except OSError:
+        print("Could not open/read file: \""+file_name+"\"")
+        return None
+    return "".join(f.read())

@@ -2,62 +2,6 @@ from nltk import CFG, Production, Nonterminal
 from nltk import Tree
 from itertools import combinations
 
-## need restriction to only 
-gg = '''HTML ->  L0 H L1 B L2 
-L0 -> '<html><head>'
-L1 -> '</head><body>'
-L2 -> '</body></html>'
-H ->  L3 T L4 
-L3 -> '<title>'
-L4 -> '</title>'
-C -> T
-B -> C B
-B -> D
-B -> C
-D -> 'None'
-C -> L8 T L9 
-T -> 'a'
-T -> L10
-L10 -> 'None'
-'''
-
-gg2 = '''
-HTML ->  L0 H L1 B L2 
-L0 -> '<html><head>'
-L1 -> '</head><body>'
-L2 -> '</body></html>'
-H ->  L3 T L4 
-L3 -> '<title>'
-L4 -> '</title>'
-C -> T
-B -> C
-B -> C B
-C ->  L5 
-L5 -> '<img>'
-C ->  L6 T L7 
-L6 -> '<br>'
-L7 -> '</br>'
-C ->  L8 T L9 
-L8 -> '<hr>'
-L9 -> '</hr>'
-T -> L10
-L10 -> 'None'
-T ->  L11 
-L11 -> 'z'
-'''
-
-gg3 = '''
-    S -> A D B G
-    A -> A B C
-    B -> C
-    A -> G
-    C -> 'c'
-    C -> 'None'
-    G -> 'a'
-    D -> 'b'
-    T -> B
-'''
-
 def check_nullable(grammar, child, nullable, depth, visited):
     for p in grammar.productions(): ## aqui se esta cortando
         if(p in visited):
@@ -105,17 +49,17 @@ def removing_combis(og, nullable):
     
     return(finals)
 
-
 def remove_all_epsilons(grammar):
     nullable = set()  
     if(check_nullable(grammar, grammar.start(), nullable, 0, [])):
         nullable.add(grammar.start())
             
     # tienen valor cero #
-    print("Nullable: ", nullable, "\n")
+    # print("Nullable: ", nullable, "\n")
     
     # print("before processing:", grammar.productions())  
     new_prods = grammar.productions().copy()
+
     # add new rules without each of the nullables
     for p in grammar.productions():
         for rr in p.rhs():
@@ -135,31 +79,6 @@ def remove_all_epsilons(grammar):
                             new_prods.append(new_production)
     # print(new_prods)   
     
-    # Process to remove rules #
-    # # Step 1: identify all rules that generate 'None'
-    # to_rem = set()
-    # for element in new_prods:
-    #     r = [i for i in element.rhs() if i not in nullable]
-    #     # if all elements in right-hand-side are in nullable or if leads to 'None' directly #
-    #     if(len(r) == 0 or (len(element.rhs()) == 1 and element.rhs()[0] == 'None')):
-    #         to_rem.add(element.lhs())
-    # print(to_rem)
-    
-    # # Step 1.5: create list of Productions to delete (cant iterate and remove concurrently) #
-    # to_rem2 = []
-    # for element in new_prods:
-    #     for rights in element.rhs():
-    #         if rights in to_rem or rights == 'None':
-    #             print(element)
-    #             if(element in new_prods):
-    #                 to_rem2.append(element)
-    # print(to_rem2)
-    
-    # # Step 2: remove Productions in list #
-    # for element in to_rem2:
-    #     if element in new_prods:
-    #         new_prods.remove(element)
-    
     to_rem2 = []
     for element in new_prods:
         if len(element.rhs()) == 1 and (element.rhs()[0] == 'None' or element.rhs()[0] == element.lhs()):
@@ -169,17 +88,6 @@ def remove_all_epsilons(grammar):
         if element in new_prods:
            new_prods.remove(element)
 
-    # Step 3: create new grammar with these rules # 
+    # create new grammar with these rules # 
     new_grammar = CFG(grammar.start(), new_prods)
     return(new_grammar)
-
-# grammar = CFG.fromstring(gg3)  
-# print("\n", "Before eliminating epsilons: ")
-# for p in grammar.productions():          
-#         print(p)  
-         
-# new_grammar = remove_all_epsilons(grammar)
-
-# print("\n", "After eliminating epsilons: ")
-# for p in new_grammar.productions():          
-#         print(p)
