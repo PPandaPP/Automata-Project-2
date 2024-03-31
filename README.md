@@ -12,12 +12,10 @@ include the pre-push hook to .git/hooks folder for the pre-push hook to work
 For the parsing of HTML, we are assuming that the input includes the following tags: \<html\>, \<head\>, \<title\>, \<body\>.
 
 todo: 
-1. XML
-2. Custom grmmar
-3. CLI
-4. Unit tests
-5. Parser split problem
-6. Fix line 60-70 eps.py recursion
-7. Identify loops in eps.py
+1. Custom grmmar
+2. CLI
+3. Unit tests
+4. Parser split problem
+
 
 For the parsing of HTML, we are assuming that the input includes the following tags: \<html\>, \<head\>, \<title\>, \<body\>.
