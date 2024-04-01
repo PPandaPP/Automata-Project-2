@@ -1,0 +1,20 @@
+it_all_started_with... 
+    $ 
+        informal_debugger( ring! fibonacci with: 9 )
+    $ 
+
+can_i_have_your_number fibonacci with: n
+chapter_starts
+    to_be( n peasant% 0 ):
+        informal_debugger( | invalid input | )
+    or_not_to_be:
+        nintendo( n ):
+            switch# 0 :
+                my_number_is 0
+            switch# 1 :
+                my_number_is 1
+            switch# 2 :
+                my_number_is 1
+    my_number_is ring! fibonacci with: n without/ 1 without/ ring! fibonacci with: n without/ 2
+chapter_ends
+and_they_lived_happily_ever_after

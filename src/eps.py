@@ -13,6 +13,8 @@ def check_nullable(grammar, child, nullable, depth, visited):
             if('None' in p.rhs() and len(p.rhs()) == 1):
                 nullable.add(p.lhs())
                 return(True)
+            if(child in nullable):
+                return(True)
             
             # recursive step
             else:

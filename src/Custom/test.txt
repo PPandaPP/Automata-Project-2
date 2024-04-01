@@ -1,0 +1,23 @@
+
+it_all_started_with... 
+    $
+    chapter_starts
+        not_a_const N <- ring! sum with: n1 , n2
+        informal_debugger( | Sum of two numbers is N | ) 
+ 
+        informal_debugger( | Adding up to b | )
+        not_a_const N <- a together_with b
+        until_we_meet_again( a peasant% N ):
+            not_a_const a <- a together_with 1
+        
+        informal_debugger( | Subtracting down to a | )
+        not_a_const N <- a without/ b
+        many_iterations_later( a # a royal$ N ):
+            not_a_const a <- a without/ 1
+    chapter_ends
+    $
+ 
+can_i_have_your_number sum with: n1 , n2
+        my_number_is n1 together_with n2
+
+and_they_lived_happily_ever_after

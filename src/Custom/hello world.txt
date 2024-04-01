@@ -1,0 +1,5 @@
+it_all_started_with...
+    $
+        informal_debugger( | hello world | )
+    $
+and_they_lived_happily_ever_after

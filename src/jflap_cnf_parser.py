@@ -51,11 +51,13 @@ def word_accept(parser, sentence, language):
     tokens = []
     if language == 1:
         tokens = HTML_parsed(sentence)
-    if language == 2:
+    elif language == 2:
         tokens = XML_parsed(sentence)
+    elif language == 3:
+        tokens = Custom_parsed(sentence)
     else:
         tokens = sentence.lower().split()
-    # print(tokens)
+    print(tokens)
 
     parser.parse(tokens)
     return(parser.print_tree())
@@ -102,6 +104,17 @@ def XML_parsed(sentence):
         token_index += 1
     return tokens
 
+def Custom_parsed(sentence):
+    raw_tokens = sentence.lower().split()
+    tokens = []
+    for token in raw_tokens:
+        if token.isalnum():
+            tokens = tokens + list(token)
+        else:
+            tokens.append(token)
+            
+    return tokens
+
 def load_grammar(grammar_file):
     g0 = CFG_to_string(grammar_file)
     # print(g0)
@@ -116,6 +129,7 @@ def load_grammar(grammar_file):
     # print("\n Printing productions in CNF...")
     rules = []
     for p in c.productions():  
+        # print(p)
         rule = str(p).replace("->", "").split()  
         if rule[0] == 'S':
             temp = rules[0]

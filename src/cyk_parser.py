@@ -97,8 +97,9 @@ class Parser:
                 print("\nPossible parse(s):")
             trees = [generate_tree(node) for node in final_nodes]
             if output:
-                for tree in trees:
-                    print(tree)
+                # for tree in trees:
+                #     print(tree)
+                print(trees[0])
                 return True
             else:
                 return trees

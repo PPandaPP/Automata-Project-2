@@ -87,8 +87,41 @@ while True:
             else:
                 print("\nXML rejected! :C\n")
     elif language == 3:
-        #custom grammar
-        print("not yet implemented!")
+        grammar_file = "Custom/custom.jff"
+        grammar_parser = parser.load_grammar(grammar_file)
+        while True:
+            print("\nMenu:\n 1. hello world \n 2. fibonacci \n 3. sum function\n 4. exit\n")
+            print("Enter desired option:")
+            option = int(input())
+            if option == 1:
+                string = parser.load_file("Custom/hello world.txt")
+
+            elif option == 2:
+                string = parser.load_file("Custom/fibonacci.txt")
+
+            elif option == 3:
+                string = parser.load_file("Custom/sumfunk.txt")
+            
+            elif option == 4:
+                break
+
+            else:
+                print("ERROR: no such option in menu!\n")
+                continue
+            
+            if string == None:
+                continue
+
+            print("\ninput program:\n")
+            print(string)
+            print("\nparse result:\n")
+            
+            accepted = parser.word_accept(grammar_parser, string, language)
+
+            if accepted:
+                print("\n program accepted! :D\n")
+            else:
+                print("\n program rejected! :C\n")
 
     elif language == 4:
         print("\nThanks for using this program!\n")

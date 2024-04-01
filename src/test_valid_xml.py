@@ -16,7 +16,7 @@ def parser():
                             "<abc> <b> sdsfds </v> <a> sdsd </b> </asx>",
                             "<abc> 1adv </b> <v> sdsd </a> <b> abc </asx>",
                             "<abc> <b> <n> sdsfds </n> </v> <asd> sdsd </asd> <a> </b> </asx>",
-                            "<html> <head> <title> z </title> </head> <body> <br> </br> </body> </html>",
+                            "<html> <head> <title> z </title> </head> <body> <br> </br> </body> </html>"
                          ])
 def test_valid_word(parser, input):
     # Assert that the connection is added correctly
