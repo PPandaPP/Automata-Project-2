@@ -18,7 +18,7 @@ Simple HTML, XML and Custom grammars in CFG were implemented in JFLAP format and
 
 <h3>HTML and XML Parsing</h3>
 <ul>
-  <li>For the parsing of HTML, this program assumes that the input includes the following tags: \<html\>, \<head\>, \<title\>, \<body\>.</li>
+  <li>For the parsing of HTML, this program assumes that the input includes the following tags: html, head, title, body.</li>
   <li>There must be some whitespace separation (space, newline etc.) between tags for the parser to work properly</li>
 </ul>
     
