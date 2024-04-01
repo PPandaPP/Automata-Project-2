@@ -293,4 +293,12 @@
 		<left>T</left>&#13;
 		<right>"9"T</right>&#13;
 	</production>&#13;
+	<production>&#13;
+		<left>T</left>&#13;
+		<right>"g"T</right>&#13;
+	</production>&#13;
+	<production>&#13;
+		<left>T</left>&#13;
+		<right>"."T</right>&#13;
+	</production>&#13;
 </structure>

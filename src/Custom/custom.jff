@@ -357,4 +357,8 @@
 		<left>R</left>&#13;
 		<right>"my_number_is" MO</right>&#13;
 	</production>&#13;
+	<production>&#13;
+		<left>T</left>&#13;
+		<right>"."T</right>&#13;
+	</production>&#13;
 </structure>

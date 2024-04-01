@@ -169,4 +169,12 @@
 		<left>XML</left>&#13;
 		<right/>&#13;
 	</production>&#13;
+	<production>&#13;
+		<left>T</left>&#13;
+		<right>"."C</right>&#13;
+	</production>&#13;
+	<production>&#13;
+		<left>T</left>&#13;
+		<right>"g"C</right>&#13;
+	</production>&#13;
 </structure>
