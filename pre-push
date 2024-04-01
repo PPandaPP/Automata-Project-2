@@ -8,7 +8,7 @@
 
 echo "getting into unit tests"
 
-cd "unit tests"
+cd "src"
 if [ $? != 0 ]
 then
     echo -e "\n No unit tests folder found \n"

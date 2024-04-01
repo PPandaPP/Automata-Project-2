@@ -3,7 +3,7 @@ from nltk import CFG, Nonterminal, nonterminals, Production, RecursiveDescentPar
 import eps
 from io import StringIO
 import xml.etree.ElementTree as ET
-
+import cyk_parser as parser
 
 def CFG_to_string(grammar_file):
     gg = ""
@@ -47,27 +47,60 @@ def CFG_to_string(grammar_file):
 
     
 def word_accept(parser, sentence, language):   
+    #XML parse
+    tokens = []
+    if language == 1:
+        tokens = HTML_parsed(sentence)
+    if language == 2:
+        tokens = XML_parsed(sentence)
+    else:
+        tokens = sentence.lower().split()
+    # print(tokens)
+
+    parser.parse(tokens)
+    return(parser.print_tree())
+
+def HTML_parsed(word):
+    word = word.lower().replace('=', '= ').split()
     
-    print("Recursion....")
-    count_steps = 0
-    # temp_tokens = sentence.lower().split()
-    # #HTML parse
-    # tokens = []
-    # if language == 1:
-    #     for t in temp_tokens:
-    #         if t.isalnum():
+    flag_img = False
+    word_tokenized = []
+    for i in range(len(word)):
+        if(flag_img):
+            flag_img = False
+            continue
+        if("<img" in word[i]):
+            word_tokenized.append(word[i]+ " " + word[i+1])
+            flag_img = True
+            continue
+        if("alt" in word[i]):
+            word_tokenized.append(" "+word[i])
+            continue
+        if (">" in word[i]) and ("<" not in word[i]):
+            word_tokenized = word_tokenized + list(word[i])  
+            #flag_img = True
+        elif word[i].isalnum():
+            word_tokenized = word_tokenized + list(word[i])   
+        else:
+            word_tokenized.append(word[i])
+            
+    
+    print(word_tokenized)       
+    return(word_tokenized)
 
-
-    try:
-        for t in parser.parse(sentence.lower().split()):
-            print(t)
-            count_steps+=1
-        if count_steps != 0:
-            return True
-    except ValueError:
-        return(False)
-
-    return(False)
+def XML_parsed(sentence):
+    tokens = []
+    token_index = 0
+    for char in sentence.lower():
+        if char == '/' and tokens[token_index-1] == '<':
+            tokens[token_index-1] = '</'
+            token_index -= 1
+        elif char == ' ' or char == '\n':
+            continue
+        else:
+            tokens.append(char)
+        token_index += 1
+    return tokens
 
 def load_grammar(grammar_file):
     g0 = CFG_to_string(grammar_file)
@@ -81,10 +114,15 @@ def load_grammar(grammar_file):
     
     c = g1.chomsky_normal_form() # not finishing
     # print("\n Printing productions in CNF...")
-    # for p in c.productions():           
-    #    print(p)  
-        
-    return(RecursiveDescentParser(c))
+    rules = []
+    for p in c.productions():  
+        rule = str(p).replace("->", "").split()  
+        if rule[0] == 'S':
+            temp = rules[0]
+            rules[0] = rule
+            rule = temp
+        rules.append(rule)
+    return(parser.Parser(rules))
 
 def load_file(file_name):
     try:

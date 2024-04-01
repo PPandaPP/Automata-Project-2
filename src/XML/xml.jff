@@ -7,7 +7,7 @@
 	</production>&#13;
 	<production>&#13;
 		<left>XML</left>&#13;
-		<right>"&lt;"T"&gt;"H"&lt;/"T"&gt;"</right>&#13;
+		<right>"&lt;"T"&gt;"H"&lt;/"T"&gt;"XML</right>&#13;
 	</production>&#13;
 	<production>&#13;
 		<left>H</left>&#13;
@@ -37,7 +37,7 @@
 		<left>C</left>&#13;
 		<right/>&#13;
 	</production>&#13;
-		<production>&#13;
+	<production>&#13;
 		<left>T</left>&#13;
 		<right>"d"C</right>&#13;
 	</production>&#13;
@@ -164,5 +164,9 @@
 	<production>&#13;
 		<left>T</left>&#13;
 		<right>"9"C</right>&#13;
+	</production>&#13;
+	<production>&#13;
+		<left>XML</left>&#13;
+		<right/>&#13;
 	</production>&#13;
 </structure>

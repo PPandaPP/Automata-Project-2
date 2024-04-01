@@ -63,7 +63,7 @@ while True:
                 string = parser.load_file("XML/"+file_name)
 
             elif option == 3:
-                print("Please enter the HTML string to be parsed (make sure there are spaces before and after each tag):")
+                print("Please enter the XML string to be parsed (make sure there are spaces before and after each tag):")
                 string = input()
             
             elif option == 4:
